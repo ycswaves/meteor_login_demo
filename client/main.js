@@ -33,3 +33,15 @@ Template.loginForm.events({
 		console.log('click');
 	}
 });
+
+Template.insertBookForm.booksCollection = function () {
+	return Books;
+}
+
+Template.editableTable.rendered = function (){
+	$(this.find('#textAreaEdit.editable:not(.editable-click)')).editable('destroy').editable({
+  		success: function(response, newValue) {
+   			console.log(newValue);	
+		}
+	});
+}

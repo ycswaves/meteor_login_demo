@@ -7,8 +7,90 @@
   <div class="ui two column grid">
     {{> loginForm}}
     {{> regiForm}}
+    {{> insertBookForm}}
+    {{> editableTable}}
   </div>
 </body>
+<template name="editableTable">
+  <div class="column">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><a id="textAreaEdit" class="editable" data-type="date" data-placeholder="Enter text" data-emptytext="Click to enter text" data-rows="4">Jacob</a></td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+    
+  </div>
+</template>
+
+<template name="insertBookForm">
+  <div class="column">
+    {{#autoForm schema=booksCollection id="insertBookForm"}}
+    <fieldset>
+        <legend>Add a Book</legend>
+        <div class="form-group{{#if afFieldIsInvalid 'title'}} has-error{{/if}}">
+            {{afFieldLabel 'title'}}
+            {{afFieldInput 'title'}}
+            {{#if afFieldIsInvalid 'title'}}
+            <span class="help-block">{{afFieldMessage 'title'}}</span>
+            {{/if}}
+        </div>
+        <div class="form-group{{#if afFieldIsInvalid 'author'}} has-error{{/if}}">
+            {{afFieldLabel 'author'}}
+            {{afFieldInput 'author'}}
+            {{#if afFieldIsInvalid 'author'}}
+            <span class="help-block">{{afFieldMessage 'author'}}</span>
+            {{/if}}
+        </div>
+        <div class="form-group{{#if afFieldIsInvalid 'summary'}} has-error{{/if}}">
+            {{afFieldLabel 'summary'}}
+            {{afFieldInput 'summary'}}
+            {{#if afFieldIsInvalid 'summary'}}
+            <span class="help-block">{{afFieldMessage 'summary'}}</span>
+            {{/if}}
+        </div>
+        <div class="form-group{{#if afFieldIsInvalid 'copies'}} has-error{{/if}}">
+            {{afFieldLabel 'copies'}}
+            {{afFieldInput 'copies'}}
+            {{#if afFieldIsInvalid 'copies'}}
+            <span class="help-block">{{afFieldMessage 'copies'}}</span>
+            {{/if}}
+        </div>
+        <div class="form-group{{#if afFieldIsInvalid 'lastCheckedOut'}} has-error{{/if}}">
+            {{afFieldLabel 'lastCheckedOut'}}
+            {{afFieldInput 'lastCheckedOut'}}
+            {{#if afFieldIsInvalid 'lastCheckedOut'}}
+            <span class="help-block">{{afFieldMessage 'lastCheckedOut'}}</span>
+            {{/if}}
+        </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary insert">Insert</button>
+    {{/autoForm}}
+  </div>
+</template>
 
 <template name="loginForm">
   <div class="column">
@@ -60,9 +142,7 @@
       {{/if}}
       <div id="regiSubmit" class="ui blue submit button">Submit</div>  
     {{/if}}
-    </div>
-    
-
+    </div>    
   </div>
 </template>
 
