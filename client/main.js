@@ -62,4 +62,24 @@ Template.editableTable.rendered = function (){
    			console.log(newValue +' response:'+ response);	
 		}
 	});
+
+	$(this.find('#groupEdit.editable:not(.editable-click)')).editable({
+		source: [
+              {id: 'gb', text: 'Great Britain'},
+              {id: 'us', text: 'United States'},
+              {id: 'ru', text: 'Russia'}
+           ],
+        select2: {
+           multiple: true
+        },
+
+		validate: function(val){
+			if($.trim(val) == ''){
+				return 'This field is required.';
+			}
+		},
+  		success: function(response, newValue) {
+   			console.log(newValue +' response:'+ response);	
+		}
+	});
 }

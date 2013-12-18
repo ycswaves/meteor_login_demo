@@ -6,7 +6,8 @@
       "autoform": {},
       "collection2": {},
       "bootstrap-3": {},
-      "x-editable-bootstrap3": {}
+      "x-editable-bootstrap3": {},
+      "select2": {}
     },
     "packages": {
       "font-awesome-4": {
@@ -33,6 +34,11 @@
         "git": "https://github.com/JustinSGray/meteor-x-editable-bootstrap.git",
         "tag": "v1.5.1",
         "commit": "33eeb067df8e68f2db0c66dabc4ae9de2bdd5906"
+      },
+      "select2": {
+        "git": "https://github.com/nate-strauser/meteor-select2.git",
+        "tag": "v3.4.5",
+        "commit": "4a8d05582b949a14f0ee217c185166abbf112822"
       },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",
