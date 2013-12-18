@@ -34,14 +34,32 @@ Template.loginForm.events({
 	}
 });
 
+$.fn.editable.defaults.mode = 'inline';
+
 Template.insertBookForm.booksCollection = function () {
 	return Books;
 }
 
 Template.editableTable.rendered = function (){
 	$(this.find('#textAreaEdit.editable:not(.editable-click)')).editable('destroy').editable({
+		validate: function(val){
+			if($.trim(val) == ''){
+				return 'This field is required ;)';
+			}
+		},
   		success: function(response, newValue) {
-   			console.log(newValue);	
+   			console.log(newValue +' response:'+ response);	
+		}
+	});
+
+	$(this.find('#nameEdit.editable:not(.editable-click)')).editable('destroy').editable({
+		validate: function(val){
+			if($.trim(val) == ''){
+				return 'This field is required.';
+			}
+		},
+  		success: function(response, newValue) {
+   			console.log(newValue +' response:'+ response);	
 		}
 	});
 }

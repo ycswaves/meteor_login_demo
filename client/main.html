@@ -1,18 +1,19 @@
 <head>
   <title>Login Test</title>
-  <link href='css/semantic.min.css' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <div class="ui two column grid">
-    {{> loginForm}}
-    {{> regiForm}}
-    {{> insertBookForm}}
-    {{> editableTable}}
+  <div class="container">
+    <div class="row"> 
+      {{> loginForm}}
+      {{> regiForm}}
+      {{> insertBookForm}}
+      {{> editableTable}}
+    </div>
   </div>
 </body>
 <template name="editableTable">
-  <div class="column">
+  <div class="col-md-6">
     <table class="table table-hover">
         <thead>
           <tr>
@@ -25,19 +26,24 @@
         <tbody>
           <tr>
             <td>1</td>
-            <td>Mark</td>
+            <td>
+              <a id="nameEdit" class="editable" data-type="text" data-placeholder="Enter name" data-emptytext="Click to enter name" data-rows="4">Mark</a>
+            </td>
             <td>Otto</td>
             <td>@mdo</td>
           </tr>
           <tr>
             <td>2</td>
-            <td><a id="textAreaEdit" class="editable" data-type="date" data-placeholder="Enter text" data-emptytext="Click to enter text" data-rows="4">Jacob</a></td>
+            <td>
+              <a id="textAreaEdit" class="editable" data-type="date" data-placeholder="Enter text" data-emptytext="Click to enter text" data-rows="4">Jacob</a>
+            </td>
             <td>Thornton</td>
             <td>@fat</td>
           </tr>
           <tr>
             <td>3</td>
-            <td colspan="2">Larry the Bird</td>
+            <td>Larry the Bird</td>
+            <td><i class="fa fa-camera-retro"></i></td>
             <td>@twitter</td>
           </tr>
         </tbody>
@@ -47,7 +53,7 @@
 </template>
 
 <template name="insertBookForm">
-  <div class="column">
+  <div class="col-md-6">
     {{#autoForm schema=booksCollection id="insertBookForm"}}
     <fieldset>
         <legend>Add a Book</legend>
@@ -93,7 +99,7 @@
 </template>
 
 <template name="loginForm">
-  <div class="column">
+  <div class="col-md-6">
     <div class="ui fluid form segment">
       <h3 class="ui header">Log-in</h3>
       <div class="field">
@@ -110,7 +116,7 @@
 </template>
 
 <template name="regiForm">
-  <div class="column">
+  <div class="col-md-6">
     <div class="ui fluid form segment">
     {{#if regiSuccess}}
       <h3 class="ui header">Register Success!</h3>
