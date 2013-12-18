@@ -58,6 +58,7 @@ Template.editableTable.rendered = function (){
 				return 'This field is required.';
 			}
 		},
+<<<<<<< HEAD
   		success: function(response, newValue) {
    			console.log(newValue +' response:'+ response);	
 		}
@@ -78,6 +79,8 @@ Template.editableTable.rendered = function (){
 				return 'This field is required.';
 			}
 		},
+=======
+>>>>>>> ecffb2be099340b1eddbd9db03846b11671a8e34
   		success: function(response, newValue) {
    			console.log(newValue +' response:'+ response);	
 		}
