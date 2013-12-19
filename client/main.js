@@ -34,21 +34,27 @@ Template.loginForm.events({
 	}
 });
 
-$.fn.editable.defaults.mode = 'inline';
+//$.fn.editable.defaults.mode = 'inline';
 
 Template.insertBookForm.booksCollection = function () {
 	return Books;
 }
-
+$.pnotify.defaults.delay = 7000;
 Template.editableTable.rendered = function (){
-	$(this.find('#textAreaEdit.editable:not(.editable-click)')).editable('destroy').editable({
+	//
+	$(this.find('#dateEdit.editable:not(.editable-click)')).editable('destroy').editable({
 		validate: function(val){
 			if($.trim(val) == ''){
 				return 'This field is required ;)';
 			}
 		},
   		success: function(response, newValue) {
-   			console.log(newValue +' response:'+ response);	
+   			console.log(newValue +' response:'+ response);
+   			$.pnotify({
+			    //title: 'Changes Saved!',
+			    text: 'Changes Saved!',
+			    type: 'success'
+			});
 		}
 	});
 
@@ -58,20 +64,15 @@ Template.editableTable.rendered = function (){
 				return 'This field is required.';
 			}
 		},
-<<<<<<< HEAD
   		success: function(response, newValue) {
    			console.log(newValue +' response:'+ response);	
 		}
 	});
 
 	$(this.find('#groupEdit.editable:not(.editable-click)')).editable({
-		source: [
-              {id: 'gb', text: 'Great Britain'},
-              {id: 'us', text: 'United States'},
-              {id: 'ru', text: 'Russia'}
-           ],
         select2: {
-           multiple: true
+          	tags: ['html', 'javascript', 'css', 'ajax'],
+            tokenSeparators: [",", " "]
         },
 
 		validate: function(val){
@@ -79,10 +80,16 @@ Template.editableTable.rendered = function (){
 				return 'This field is required.';
 			}
 		},
-=======
->>>>>>> ecffb2be099340b1eddbd9db03846b11671a8e34
   		success: function(response, newValue) {
    			console.log(newValue +' response:'+ response);	
 		}
 	});
+	$(this.findAll('.editable')).editable('disable');
 }
+
+Template.editableTable.events({
+	'click #form-edit': function(e,templ){
+		console.log('click edit');
+		$(templ.findAll('.editable')).editable('toggleDisabled');
+	}
+});

@@ -7,7 +7,8 @@
       "collection2": {},
       "bootstrap-3": {},
       "x-editable-bootstrap3": {},
-      "select2": {}
+      "select2": {},
+      "pnotify-bootstrap-3": {}
     },
     "packages": {
       "font-awesome-4": {
@@ -39,6 +40,11 @@
         "git": "https://github.com/nate-strauser/meteor-select2.git",
         "tag": "v3.4.5",
         "commit": "4a8d05582b949a14f0ee217c185166abbf112822"
+      },
+      "pnotify-bootstrap-3": {
+        "git": "https://github.com/emdagon/meteor-pnotify-bootstrap-3.git",
+        "tag": "v0.1.1",
+        "commit": "023f3d92803dd9ae9f244dc4f086cd57ddf013e4"
       },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",

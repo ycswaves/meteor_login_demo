@@ -14,7 +14,7 @@
 </body>
 <template name="editableTable">
   <div class="col-md-6">
-    <table class="table table-hover">
+    <table class="table table-hover" id="editableForm">
         <thead>
           <tr>
             <th>#</th>
@@ -35,13 +35,9 @@
           <tr>
             <td>2</td>
             <td>
-              <a id="textAreaEdit" class="editable" data-type="date" data-placeholder="Enter text" data-emptytext="Click to enter text" data-rows="4">Jacob</a>
+              <a id="dateEdit" class="editable" data-type="date" data-placeholder="Enter text" data-emptytext="Click to enter text" data-rows="4">2013-12-19</a>
             </td>
-<<<<<<< HEAD
-            <td><a id="groupEdit" class="editable" data-type="select2" data-placeholder="Notify" emptytext="Click to enter name" data-rows="4">test</a></td>
-=======
-            <td>Thornton</td>
->>>>>>> ecffb2be099340b1eddbd9db03846b11671a8e34
+            <td><a id="groupEdit" class="editable" data-type="select2">html</a></td>
             <td>@fat</td>
           </tr>
           <tr>
@@ -49,10 +45,10 @@
             <td>Larry the Bird</td>
             <td><i class="fa fa-camera-retro"></i></td>
             <td>@twitter</td>
-          </tr>
+          </tr>                      
         </tbody>
       </table>
-    
+      <div><button class="btn btn-primary" id="form-edit">Edit</button></div>
   </div>
 </template>
 
