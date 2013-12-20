@@ -85,6 +85,13 @@ Template.editableTable.rendered = function (){
 		}
 	});
 	$(this.findAll('.editable')).editable('disable');
+	$(this.find('#icon-bell')).jrumble({
+		x: 1,
+		y: 0,
+		rotation: 10,
+		speed: 30
+	});
+	demoStart();
 }
 
 Template.editableTable.events({
@@ -93,3 +100,13 @@ Template.editableTable.events({
 		$(templ.findAll('.editable')).editable('toggleDisabled');
 	}
 });
+
+var demoStart = function(){
+	$('#icon-bell').trigger('startRumble');
+	setTimeout(demoStop, 2000);
+};
+
+var demoStop = function(){
+	$('#icon-bell').trigger('stopRumble');
+	setTimeout(demoStart, 2000);
+};
